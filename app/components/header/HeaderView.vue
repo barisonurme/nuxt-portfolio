@@ -1,5 +1,9 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
+    <img class="absolute object-contain z-10 h-[720px] top-0 w-2/6 translate-y-1/2"
+        src="https://github.githubassets.com/assets/particles-de1dd20f3008.png" alt="temp-partical">
+    <div class="blur light:opacity-50 top-0 absolute flex w-full h-[540px] translate-y-12" />
+
     <div class="flex flex-col justify-start items-start max-w-6xl w-full mt-44 p-8 lg:p-24">
         <h2 class="text-4xl">Passionate about</h2>
         <div class="flex flex-col md:flex-row gap-4 items-start text-white!">
@@ -25,4 +29,21 @@ import ContainerTextFlip from '~/components/ui/container-text-flip/ContainerText
 const words = ['Experience', 'for Scale', 'that Matter', 'with Style']
 </script>
 
-<style scoped></style>
+
+
+
+<style>
+.blur {
+    width: 693px;
+    max-width: 693px;
+    height: 765.714px;
+    top: 200px;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(-45deg);
+    background: radial-gradient(105.37% 105.37% at -0.01% 100.04%,
+            var(--ui-primary) 40.75%,
+            rgba(10, 3, 202, 0.359) 80%,
+            rgba(255, 255, 255, 0) 100%);
+    filter: blur(142px);
+}
+</style>

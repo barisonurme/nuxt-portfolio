@@ -1,39 +1,22 @@
-<script setup lang="ts">
-import type { NavigationMenuItem } from '@nuxt/ui'
-
-const items: NavigationMenuItem[] = [{
-    label: 'Figma Kit',
-    to: 'https://go.nuxt.com/figma-ui',
-    target: '_blank'
-}, {
-    label: 'Playground',
-    to: 'https://stackblitz.com/edit/nuxt-ui',
-    target: '_blank'
-}, {
-    label: 'Releases',
-    to: 'https://github.com/nuxt/ui/releases',
-    target: '_blank'
-}]
-</script>
-
 <template>
     <!-- eslint-disable vue/first-attribute-linebreak -->
-    <USeparator icon="i-simple-icons-nuxtdotjs" type="dashed" class="h-px" />
+    <USeparator type="dashed" class="h-px" icon="i-custom:custom-icon" />
 
-    <UFooter class="flex w-full ">
+
+    <UFooter class="flex w-full items-center justify-center">
         <template #left>
-            <p class="text-muted text-sm">
-                Copyright © {{ new Date().getFullYear() }}
-            </p>
+            <div class="flex flex-col py-4">
+                <UIcon name="i-custom:custom-icon" class="size-12! text-primary!" />
+                <p class="text-muted text-sm">
+                    barisonurme.com
+                </p>
+            </div>
         </template>
 
-        <UNavigationMenu :items="items" variant="link" />
+        Copyright © {{ new Date().getFullYear() }}
 
         <template #right>
-            <UButton icon="i-simple-icons-discord" color="neutral" variant="ghost" to="https://go.nuxt.com/discord"
-                target="_blank" aria-label="Discord" />
-            <UButton icon="i-simple-icons-x" color="neutral" variant="ghost" to="https://go.nuxt.com/x" target="_blank"
-                aria-label="X" />
+
             <UButton icon="i-simple-icons-github" color="neutral" variant="ghost" to="https://github.com/nuxt/nuxt"
                 target="_blank" aria-label="GitHub" />
         </template>

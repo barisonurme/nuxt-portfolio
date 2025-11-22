@@ -9,9 +9,10 @@ const authors = ref([
         name: 'Baris Onurme',
         description: 'github.com/barisonurme',
         avatar: {
-            src: 'data:image/jpeg;base64,...' // truncated
+            src: 'https://media.licdn.com/dms/image/v2/D4D03AQEOI3bPi99tCA/profile-displayphoto-shrink_200_200/B4DZd0Xvu5H4AY-/0/1750004071878?e=1765411200&v=beta&t=uMHetKR_XfHVM0s3FZhh0D1_ISfxuoUpNVvu-lwOocE',
+            alt: 'author avatar',
         },
-        to: 'github.com/barisonurme',
+        to: 'https://github.com/barisonurme',
         target: '_blank'
     }
 ])
@@ -22,7 +23,14 @@ const { data: posts } = await useAsyncData('posts', async () => {
     title,
     slug,
     body,
-    publishedAt
+    publishedAt,
+    mainImage{
+        asset->{
+          _id,
+          url
+        },
+        alt
+      }
   }`
     return await client.fetch(query)
 })
@@ -30,7 +38,7 @@ const { data: posts } = await useAsyncData('posts', async () => {
 
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
-    <div class="flex flex-col w-full justify-center items-center">
+    <div class="flex flex-col w-full justify-center items-center mb-44">
 
 
         <div class="blur light:opacity-50 top-0 absolute flex w-full h-[540px] opacity-20" />
@@ -47,35 +55,28 @@ const { data: posts } = await useAsyncData('posts', async () => {
 
 
 
-            <div class="grid col-span-8  p-4">
+            <div class="grid col-span-12 xl:col-span-8  p-4">
 
                 <div class="flex flex-col gap-4">
-                    <h1 class="text-2xl font-black text-primary mt-12 mb-4 z-50"><span class="text-default">All
+                    <h1 class="text-2xl font-black text-primary mt-12 mb-4"><span class="text-default">All
                         </span>Posts</h1>
                     <div v-for="(post, i) in posts" :key="i">
                         <NuxtLink :to="`/blog/${post.slug.current}`">
-                            <UCard class="flex flex-col gap-1 w-full bg-muted/20">
-                                <div class="flex w-full justify-between items-start">
-                                    <div class="flex flex-col">
-                                        <p class="font-bold">{{ post.title }}</p>
-                                        <!-- <p class="text-xs opacity-50">{{ formatDate(post.publishedAt, "hh-mm-yyyy") }}</p> -->
-                                    </div>
-                                    <p class="opacity-50 text-xs font-black">5 min read</p>
-                                </div>
-                                <p class="opacity-50">{{ post.description }}</p>
-                            </UCard>
+                            <UBlogPost :image="post.mainImage.asset.url" :alt="post.mainImage.alt"
+                                class="col-span-4 bg-muted/20" v-bind="post" :authors="authors" description=""
+                                :ui="{ image: 'object-contain' }" />
                         </NuxtLink>
                     </div>
                 </div>
             </div>
 
-            <div class="grid col-span-4 gap-4 p-4 justify-start items-start">
+            <div class="hidden xl:grid col-span-4 gap-4 p-4 justify-start items-start">
 
                 <div class="flex flex-col gap-4 h-full justify-start items-start">
-                    <h1 class="text-2xl font-black text-primary mt-12 mb-4 z-50">Featured</h1>
+                    <h1 class="text-2xl font-black text-primary mt-12 mb-4">Featured</h1>
 
                     <UBlogPost v-for="(post, i) in posts.slice(0, 2)" :key="i" class="col-span-4 bg-muted/20"
-                        v-bind="post" :authors="authors" description="" />
+                        v-bind="post" description="" />
                 </div>
             </div>
         </div>

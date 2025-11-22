@@ -4,8 +4,17 @@
 
 
 @theme static {
-  /* Override default green color */
-  --ui-primary: #0ef0a1;
-  --ui-bg: #141414;
+  --ui-primary: #292875;
+  --ui-bg: #181827;
 }
 
+:root {
+  --ui-primary: #292875;
+  --ui-bg:  #eaeaea;
+}
+
+.dark {
+  --ui-bg:  #0d0e12;
+  --ui-primary: #0ef0a1;
+
+}

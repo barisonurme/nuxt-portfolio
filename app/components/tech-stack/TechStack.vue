@@ -52,7 +52,7 @@ const testimonials = ref([
     {
         user: {
             name: "GraphQL Foundation",
-            description: "Stewards of GraphQL",
+            description: "Creator GraphQL",
             avatar: {
                 src: 'https://miro.medium.com/v2/resize:fill:64:64/1*r3FlTD2XFPg7lMn2hy1MkA.jpeg',
                 alt: "Nick Schrock",
@@ -150,21 +150,23 @@ const testimonials = ref([
 </script>
 
 <template>
-    <UPageColumns>
-
-
-        <UPageCard
-            class="group hover:border-primary/50! border border-muted/50 bg-muted/20 opacity-80 hover:opacity-100 duration-500 transition-all "
-            v-for="(testimonial, index) in testimonials" :key="index" variant="subtle" :description="testimonial.quote"
-            :ui="{
-                description: 'before:content-[open-quote] after:content-[close-quote]',
-                leadingIcon: 'size-10 text-primary!',
-            }">
-            <template #footer>
-                <UUser v-bind="testimonial.user" size="xl"
-                    :ui="{ name: 'group-hover:text-primary! duration-500 transition-all ', avatar: 'duration-500 transition-all saturate-0 group-hover:saturate-100' }" />
-            </template>
-        </UPageCard>
-
-    </UPageColumns>
+    <div class="flex w-full items-center justify-center">
+        <div class="flex max-w-7xl flex-col items-centerxl:mb-12 my-24 p-4 items-center justify-center">
+            <p class="text-5xl text-primary font-bold">Tech <span class="text-default">Stack</span></p>
+            <p class="opacity-50 text-xl mt-4  mb-12">These are some of the technologies I use on a daily basis.</p>
+            <UPageColumns>
+                <UPageCard v-for="(testimonial, index) in testimonials"
+                    class="group hover:border-primary/50! border border-muted/50 bg-muted/20 opacity-80 hover:opacity-100 duration-500 transition-all "
+                    :key="index" variant="subtle" :description="testimonial.quote" :ui="{
+                        description: 'opacity-0 group-hover:opacity-100 h-0! group-hover:h-24! transition-all duration-500 before:content-[open-quote] after:content-[close-quote]',
+                        leadingIcon: 'size-10 text-primary!',
+                    }">
+                    <template #footer>
+                        <UUser v-bind="testimonial.user" size="xl"
+                            :ui="{ name: 'group-hover:text-primary! duration-500 transition-all', avatar: 'duration-500 transition-all saturate-0 group-hover:saturate-100' }" />
+                    </template>
+                </UPageCard>
+            </UPageColumns>
+        </div>
+    </div>
 </template>

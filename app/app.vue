@@ -30,6 +30,8 @@ const items = computed<NavigationMenuItem[]>(() => [
   <!-- eslint-disable vue/first-attribute-linebreak -->
   <UHeader :style="{ height: HEADER_HEIGHT }">
     <template #title>
+
+
       <p class="text-primary font-black text-font-custom">baris<span class="text-white">.</span></p>
     </template>
 
@@ -43,7 +45,7 @@ const items = computed<NavigationMenuItem[]>(() => [
     </template>
   </UHeader>
 
-  <div :style="{ display: 'flex', alignItems: 'center', justifyContent: 'center' }">
+  <div :style="{ minHeight: '80dvh', height: '100%', display: 'flex', alignItems: 'start', justifyContent: 'center' }">
     <NuxtPage />
   </div>
 
