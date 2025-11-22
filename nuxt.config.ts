@@ -1,6 +1,4 @@
 import tailwindcss from "@tailwindcss/vite";
-import { presetIcons } from 'unocss'
-import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -19,7 +17,6 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@unocss/nuxt',
     '@nuxt/eslint',
     '@nuxt/hints',
     '@nuxt/image',
@@ -31,19 +28,4 @@ export default defineNuxtConfig({
   },
   css: ['./app/assets/css/main.css'],
 
-unocss: {
-  presets: [
-    presetIcons({
-      collections: {
-        custom: FileSystemIconLoader(
-          './assets/icons',
-          svg => {
-            console.log('Loading SVG...'); // This will show in terminal
-            return svg.replace(/^<svg /, '<svg fill="currentColor" ')
-          }
-        )
-      }
-    })
-  ]
-}
 });
