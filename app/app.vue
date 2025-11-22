@@ -22,6 +22,10 @@ const items = computed<NavigationMenuItem[]>(() => [
     to: '/blog',
   }
 ])
+
+const config = useRuntimeConfig()
+console.log(config.public.sanityProjectId) // "1dxd05m0"
+
 </script>
 
 <template>

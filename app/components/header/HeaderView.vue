@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
     <div class="flex flex-col justify-start items-start max-w-6xl w-full mt-44 p-8 lg:p-24">
         <h2 class="text-4xl">Passionate about</h2>
@@ -24,8 +25,4 @@ import ContainerTextFlip from '~/components/ui/container-text-flip/ContainerText
 const words = ['Experience', 'for Scale', 'that Matter', 'with Style']
 </script>
 
-<style scoped>
-h1 {
-    font-family: "Exo 2", sans-serif;
-}
-</style>
+<style scoped></style>

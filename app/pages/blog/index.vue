@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useAsyncData } from '#app'
+import { client } from '~/plugins/utils/sanaty'
 
 const authors = ref([
     {
@@ -13,68 +15,20 @@ const authors = ref([
 ])
 
 
-const posts = [
-    {
-        title: "From React to Nuxt: What I Wish I Knew Earlier",
-        description: "A React developer's journey switching to Nuxt: mental models, reactivity, SSR and common pitfalls.",
-        date: "2024-11-25",
-        img: "https://linda-hoang.com/wp-content/uploads/2014/10/img-placeholder-dark.jpg"
-    },
-    {
-        title: "Building a Custom Video Player in React Using HLS.js",
-        description: "How to implement a fully custom HLS video player in React with hooks, events, and performance tricks.",
-        date: "2024-11-25",
-        img: "https://linda-hoang.com/wp-content/uploads/2014/10/img-placeholder-dark.jpg"
-    },
-    {
-        title: "Interactive Maps in React with Leaflet",
-        description: "A practical walkthrough creating map UIs, markers, geofences, and optimizing performance with React-Leaflet.",
-        date: "2024-11-25",
-        img: "https://linda-hoang.com/wp-content/uploads/2014/10/img-placeholder-dark.jpg"
-    },
-    {
-        title: "Scaling Design Systems in React with shadcn/ui + Tailwind",
-        description: "How shadcn/ui empowers scalable, consistent UI systems and how to structure them in real projects.",
-        date: "2024-11-25",
-        img: "https://linda-hoang.com/wp-content/uploads/2014/10/img-placeholder-dark.jpg"
-    },
-    {
-        title: "Applying Atomic Design in React: What Works and What Doesn't",
-        description: "A real-world look at using Atomic Design in React, plus folder structures, reuse patterns, and pitfalls.",
-        date: "2024-11-25",
-        img: "https://linda-hoang.com/wp-content/uploads/2014/10/img-placeholder-dark.jpg"
-    },
-    {
-        title: "SOLID Principles in React: Real Examples, Not Theory",
-        description: "Breaking down SOLID with practical React examples small hooks, reusable components, and clean architecture.",
-        date: "2024-11-25",
-        img: "https://linda-hoang.com/wp-content/uploads/2014/10/img-placeholder-dark.jpg"
-    },
-    {
-        title: "React Performance in 2025: Things I Wish I Knew Earlier",
-        description: "Modern performance tuning using Suspense, useDeferredValue, server components, memoization and more.",
-        date: "2024-11-25",
-        img: "https://linda-hoang.com/wp-content/uploads/2014/10/img-placeholder-dark.jpg"
-    },
-    {
-        title: "Beyond Redux: Choosing State Management in 2025",
-        description: "Zustand, Jotai, Recoil, Signals, or server state? A practical guide for scaling React apps.",
-        date: "2024-11-25",
-        img: "https://linda-hoang.com/wp-content/uploads/2014/10/img-placeholder-dark.jpg"
-    },
-    {
-        title: "Custom React Hooks That Changed How I Build Apps",
-        description: "A collection of powerful custom hooks like useDebounce, useAsync, useHLS, useIntersectionObserver and more.",
-        date: "2024-11-25",
-        img: "https://linda-hoang.com/wp-content/uploads/2014/10/img-placeholder-dark.jpg"
-    },
-    {
-        title: "Lessons From My First 4 Years as a React Developer",
-        description: "A personal reflection on growth, mistakes, breakthroughs, and what truly matters in frontend development.",
-        date: "2024-11-25",
-        img: "https://linda-hoang.com/wp-content/uploads/2014/10/img-placeholder-dark.jpg"
-    }
-]
+
+
+
+const { data: posts } = await useAsyncData('posts', async () => {
+    const query = `*[_type == "post"] | order(publishedAt desc){
+    _id,
+    title,
+    slug,
+    body,
+    publishedAt
+  }`
+    return await client.fetch(query)
+})
+
 
 
 </script>
@@ -97,27 +51,26 @@ const posts = [
 
 
 
+
             <div class="grid col-span-8  p-4">
 
                 <div class="flex flex-col gap-4">
                     <h1 class="text-2xl font-black text-primary mt-12 mb-4 z-50"><span class="text-default">All
                         </span>Posts</h1>
-                    <UCard v-for="(post, i) in posts" :key="i" class="flex flex-col gap-1 w-full bg-muted/20">
-
-                        <template #header>
-                            <div class="flex w-full justify-between items-start">
-                                <div class="flex flex-col">
-                                    <p class="font-bold">{{ post.title }}</p>
-                                    <p class="text-xs opacity-50">21.12.2025</p>
+                    <div v-for="(post, i) in posts" :key="i">
+                        <NuxtLink :to="`/blog/${post.slug.current}`">
+                            <UCard class="flex flex-col gap-1 w-full bg-muted/20">
+                                <div class="flex w-full justify-between items-start">
+                                    <div class="flex flex-col">
+                                        <p class="font-bold">{{ post.title }}</p>
+                                        <!-- <p class="text-xs opacity-50">{{ formatDate(post.publishedAt, "hh-mm-yyyy") }}</p> -->
+                                    </div>
+                                    <p class="opacity-50 text-xs font-black">5 min read</p>
                                 </div>
-                                <p class="opacity-50 text-xs font-black">5 min read</p>
-                            </div>
-                        </template>
-                        <template #default>
-                            <p class="opacity-50">{{ post.description }}</p>
-
-                        </template>
-                    </UCard>
+                                <p class="opacity-50">{{ post.description }}</p>
+                            </UCard>
+                        </NuxtLink>
+                    </div>
                 </div>
             </div>
 

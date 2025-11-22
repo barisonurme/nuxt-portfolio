@@ -5,10 +5,7 @@
 
 @theme static {
   /* Override default green color */
-  --ui-primary: #0652ff;
+  --ui-primary: #0ef0a1;
   --ui-bg: #141414;
 }
 
-:root  {
-    font-family: "Noto Sans", sans-serif;
-}
