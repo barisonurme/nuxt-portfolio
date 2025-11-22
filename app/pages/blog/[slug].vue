@@ -1,7 +1,10 @@
 <script setup>
 import { PortableText } from '@portabletext/vue'
 import { useRoute } from 'vue-router'
-import { client } from '~/plugins/utils/sanaty'
+
+import { useSanityClient } from '~/plugins/utils/sanaty'
+
+const client = useSanityClient()
 
 const route = useRoute()
 const slug = route.params.slug
