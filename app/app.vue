@@ -23,8 +23,6 @@ const items = computed<NavigationMenuItem[]>(() => [
   }
 ])
 
-const config = useRuntimeConfig()
-console.log(config.public.sanityProjectId) // "1dxd05m0"
 
 </script>
 
