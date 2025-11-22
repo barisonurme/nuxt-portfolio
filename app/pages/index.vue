@@ -2,33 +2,16 @@
 
 <template>
     <div class="relative flex flex-col justify-center items-center w-full h-full">
-        <img class="absolute top-0 w-2/6 translate-y-1/2"
+        <img class="absolute object-contain z-10 h-[720px] top-0 w-2/6 translate-y-1/2"
             src="https://github.githubassets.com/assets/particles-de1dd20f3008.png" alt="temp-partical">
         <div class="blur light:opacity-50 top-0 absolute flex w-full h-[540px] translate-y-12">
 
         </div>
-        <div class="flex flex-col justify-start items-start max-w-6xl w-full mt-44 p-8 lg:p-24">
-            <h2 class="text-4xl">Passionate about</h2>
-            <div class="flex flex-col md:flex-row gap-4 items-start text-white!">
-                <h1 class="text-6xl lg:text-[102px] h-auto md:h-32 mt-2 font-bold text-primary ">
-                    Building</h1>
-                <ContainerTextFlip :interval=5000 :words="words"
-                    class="h-auto md:h-32 bg-muted/0 text-primary! underline!" />
-            </div>
-            <h3 class="text-2xl mt-24 lg:mt-4 opacity-70   -translate-y-4">Whether it's crafting structure or
-                fine-tuning
-                every
-                byte.</h3>
-            <div class="flex gap-4 mt-12">
-                <UButton size="lg" class="">About</UButton>
-                <UButton size="lg" variant="outline">Contact</UButton>
-            </div>
-
-        </div>
+        <HeaderView />
 
         <div class="flex w-full h-full justify-center items-center z-10 mt-44">
             <div
-                class="flex w-full max-w-7xl bg-inverted/5 border-b-none rounded-4xl rounded-b-none p-8 pb-0 backdrop-blur-3xl [540px]">
+                class="flex w-full max-w-7xl bg-inverted/5 border border-muted/80 border-t-white/30 border-b-none rounded-4xl rounded-b-none p-8 pb-0 backdrop-blur-3xl [540px]">
                 <div
                     class="flex flex-col gap-4 w-full max-w-7xl bg-default rounded-2xl shadow-2xl light:shadow-none rounded-b-none p-8 backdrop-blur-3xl h-full">
                     <div class="flex w-full justify-start items-center">
@@ -74,17 +57,14 @@
             </div>
         </div>
 
-        <FooterView />
 
     </div>
 
 </template>
 
 <script lang="ts" setup>
-import ContainerTextFlip from '~/components/ui/container-text-flip/ContainerTextFlip.vue';
-import FooterView from '~/components/ui/footer/FooterView.vue';
 
-const words = ['Experience', 'for Scale', 'that Matter', 'with Style']
+
 
 </script>
 
@@ -97,7 +77,10 @@ const words = ['Experience', 'for Scale', 'that Matter', 'with Style']
     top: 200px;
     left: 50%;
     transform: translate(-50%, 0) rotate(-45deg);
-    background: radial-gradient(105.37% 105.37% at -0.01% 100.04%, rgb(4, 223, 115) 40.75%, rgba(10, 3, 202, 0.359) 80%, rgba(10, 3, 202, 0) 100%);
+    background: radial-gradient(105.37% 105.37% at -0.01% 100.04%,
+            var(--ui-primary) 40.75%,
+            rgba(10, 3, 202, 0.359) 80%,
+            rgba(255, 255, 255, 0) 100%);
     filter: blur(142px);
 }
 </style>

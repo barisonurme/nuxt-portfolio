@@ -20,7 +20,7 @@ const items: NavigationMenuItem[] = [{
     <!-- eslint-disable vue/first-attribute-linebreak -->
     <USeparator icon="i-simple-icons-nuxtdotjs" type="dashed" class="h-px" />
 
-    <UFooter class="flex w-full">
+    <UFooter class="flex w-full ">
         <template #left>
             <p class="text-muted text-sm">
                 Copyright © {{ new Date().getFullYear() }}

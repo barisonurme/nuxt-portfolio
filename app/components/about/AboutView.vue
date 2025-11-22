@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col gap-12 p-8 text-lg">
+    <div class="flex flex-col gap-12 p-8 text-lg py-44">
         <div>
             <p class="font-black text-primary">Background</p>
             I started my career in 2015 as a Graphic Designer, shaping visual identities and creating both digital and

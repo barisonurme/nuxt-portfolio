@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
+import FooterView from './components/ui/footer/FooterView.vue';
 
 const HEADER_HEIGHT = '80px'
 
@@ -43,6 +44,8 @@ const items = computed<NavigationMenuItem[]>(() => [
   <div :style="{ display: 'flex', alignItems: 'center', justifyContent: 'center' }">
     <NuxtPage />
   </div>
+
+  <FooterView />
 
 </template>
 

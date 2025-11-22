@@ -2,10 +2,13 @@
 @import "@nuxt/ui";
 @import "tw-animate-css";
 
-:root {
-  --ui-bg: var(--ui-color-neutral-50);
+
+@theme static {
+  /* Override default green color */
+  --ui-primary: #0652ff;
+  --ui-bg: #141414;
 }
 
-.dark {
-  --ui-bg: var(--ui-color-neutral-950);
+:root  {
+    font-family: "Noto Sans", sans-serif;
 }

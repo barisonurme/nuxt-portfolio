@@ -1,10 +1,12 @@
 <template>
-    <div :style="{ height: `calc(100dvh - ${HEADER_HEIGHT})` }" class="flex justify-center items-center w-full">
-        Contact Page Under Construction
+    <div class="flex w-full max-w-7xl">
+        <UPageHeader :ui="{ container: 'px-4', headline: 'px-4' }" class="flex flex-col w-full" title="Contact Form"
+            description="Have questions or want to collaborate? Send me a message, and I'll get back to you soon!"
+            headline="If you like what you see lets talk!" />
+
     </div>
 </template>
 <script lang="ts" setup>
-import { HEADER_HEIGHT } from '~/layout/layout-config';
 
 
 
