@@ -154,19 +154,19 @@ const testimonials = ref([
         <div class="flex max-w-7xl flex-col items-centerxl:mb-12 my-24 p-4 items-center justify-center">
             <p class="text-5xl text-primary font-bold">Tech <span class="text-default">Stack</span></p>
             <p class="opacity-50 text-xl mt-4  mb-12">These are some of the technologies I use on a daily basis.</p>
-            <UPageColumns>
+            <UPageGrid class="justify-center items-center">
                 <UPageCard v-for="(testimonial, index) in testimonials"
-                    class="group hover:border-primary/50! border border-muted/50 bg-muted/20 opacity-80 hover:opacity-100 duration-500 transition-all "
+                    class="group hover:border-primary/50! border border-muted/50 bg-muted/20 opacity-80 hover:opacity-100 duration-300 ease-out transition-all "
                     :key="index" variant="subtle" :description="testimonial.quote" :ui="{
-                        description: 'xl:opacity-0 xl:group-hover:opacity-100 xl:h-0! h-auto xl:group-hover:h-24! transition-all duration-500 before:content-[open-quote] after:content-[close-quote]',
+                        description: 'xl:opacity-0 xl:group-hover:opacity-100 xl:h-0! h-auto xl:group-hover:h-24! transition-all duration-300 ease-out  delay-300 before:content-[open-quote] after:content-[close-quote]',
                         leadingIcon: 'size-10 text-primary!',
                     }">
                     <template #footer>
                         <UUser v-bind="testimonial.user" size="xl"
-                            :ui="{ name: 'group-hover:text-primary! duration-500 transition-all', avatar: 'duration-500 transition-all saturate-0 group-hover:saturate-100' }" />
+                            :ui="{ name: 'group-hover:text-primary! duration-300 ease-out transition-all', avatar: 'duration-300 ease-out transition-all saturate-0 group-hover:saturate-100' }" />
                     </template>
                 </UPageCard>
-            </UPageColumns>
+            </UPageGrid>>
         </div>
     </div>
 </template>
