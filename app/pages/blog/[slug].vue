@@ -52,6 +52,13 @@ const { data: post } = await useAsyncData(`post-${slug}`, async () => {
             <!-- Portable Text rendering -->
             <PortableText v-if="post.body" :value="post.body" />
         </div>
+
+        <div class="flex w-full justify-center items-center">
+            <UButton variant="ghost" to="/blog" class="px-12">
+                <UIcon name="i-lucide:arrow-left" />
+                Back to Blogs
+            </UButton>
+        </div>
     </div>
 </template>
 
