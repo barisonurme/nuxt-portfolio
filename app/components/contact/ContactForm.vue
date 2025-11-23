@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
-    <div class="px-4">
+    <div class="px-4 pb-4">
         <UCard class="mt-8 bg-muted/30">
             <UForm class="flex flex-col gap-4 w-full mt-4" :state="state" :schema="schema" @submit="onSubmit">
                 <UFormField label="Full Name" name="fullName">
