@@ -1,10 +1,11 @@
+<!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
-    <div class="flex w-full min-h-[540px] max-w-7xl border-x border-muted/50">
-        <div class="grid grid-cols-12 w-full">
-            <div class="col-span-12 xl:col-span-4 h-full border-r border-muted/50">
-                <div
-                    class="flex justify-center items-center w-full md:h-auto xl:h-1/2 border-none xl:border-b border-muted/50">
-                    <p class="mt-12 xl:mt-auto text-6xl text-primary font-semibold">About<span
+    <div class="flex w-full min-h-[540px] max-w-7xl h-full border-x border-muted/50"
+        :class="pageMode ? 'xl:border-none' : ''">
+        <div class="grid grid-cols-12 w-full h-full">
+            <div v-show="!pageMode" class="col-span-12 xl:col-span-4 h-full border-r border-muted/50">
+                <div class="flex justify-center items-center w-full md:h-auto xl:h-1/2">
+                    <p class="mt-12 xl:mt-0 text-6xl text-primary font-semibold">About <span
                             class="text-default">Me</span></p>
                 </div>
                 <div class="hidden xl:flex justify-center items-center w-full h-1/2">
@@ -58,7 +59,9 @@
     </div>
 
 </template>
-<script setup lang="ts">
 
+<script setup lang="ts">
+const { pageMode } = defineProps({ pageMode: Boolean })
 </script>
+
 <style></style>
