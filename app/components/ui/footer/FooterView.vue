@@ -1,12 +1,12 @@
 <template>
     <!-- eslint-disable vue/first-attribute-linebreak -->
-    <USeparator type="dashed" class="h-px" icon="i-custom:custom-icon" />
+    <USeparator type="dashed" class="h-px" />
 
 
     <UFooter class="flex w-full items-center justify-center">
         <template #left>
             <div class="flex flex-col py-4">
-                <UIcon name="i-custom:custom-icon" class="size-12! text-primary!" />
+                <Logo class="w-10 h-10 text-primary" />
                 <p class="text-muted text-sm">
                     barisonurme.com
                 </p>
@@ -26,3 +26,8 @@
         </template>
     </UFooter>
 </template>
+
+
+<script setup>
+import Logo from '~/assets/logo.svg'
+</script>
