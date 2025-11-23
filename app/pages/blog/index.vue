@@ -9,7 +9,7 @@ const authors = ref([
         name: 'Baris Onurme',
         description: 'github.com/barisonurme',
         avatar: {
-            src: 'https://media.licdn.com/dms/image/v2/D4D03AQEOI3bPi99tCA/profile-displayphoto-shrink_200_200/B4DZd0Xvu5H4AY-/0/1750004071878?e=1765411200&v=beta&t=uMHetKR_XfHVM0s3FZhh0D1_ISfxuoUpNVvu-lwOocE',
+            src: 'https://media.licdn.com/dms/image/v2/D4D03AQHHwMHSsvDAaw/profile-displayphoto-crop_800_800/B4DZqyLCh1GQAI-/0/1763925830886?e=1765411200&v=beta&t=DtsqH6idD-OuPlo1RpuGIGFpq0F_AG7JhJtzwufd5N8',
             alt: 'author avatar',
         },
         to: 'https://github.com/barisonurme',
