@@ -14,7 +14,7 @@
                 <UTextarea v-model="state.message" class="w-full" placeholder="Your message" />
             </UFormField>
 
-            <div class="flex xl:flex-row flex-col w-full justify-between items-center">
+            <div class="flex xl:flex-row flex-col-reverse gap-4 w-full justify-between items-center">
                 <div class="flex items-center gap-2">
                     <!-- TODO: Add tooltip to inform user here -->
                     <p class="text-xs opacity-50">This form is protected with <strong>reCatpcha</strong></p>
