@@ -1,32 +1,34 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
-    <UCard class="mt-8 bg-muted/30">
-        <UForm class="flex flex-col gap-4 w-full mt-4" :state="state" :schema="schema" @submit="onSubmit">
-            <UFormField label="Full Name" name="fullName">
-                <UInput v-model="state.fullName" class="w-full" placeholder="Your name" />
-            </UFormField>
+    <div class="px-4">
+        <UCard class="mt-8 bg-muted/30">
+            <UForm class="flex flex-col gap-4 w-full mt-4" :state="state" :schema="schema" @submit="onSubmit">
+                <UFormField label="Full Name" name="fullName">
+                    <UInput v-model="state.fullName" class="w-full" placeholder="Your name" />
+                </UFormField>
 
-            <UFormField label="Email" name="email">
-                <UInput v-model="state.email" class="w-full" placeholder="you@example.com" type="email" />
-            </UFormField>
+                <UFormField label="Email" name="email">
+                    <UInput v-model="state.email" class="w-full" placeholder="you@example.com" type="email" />
+                </UFormField>
 
-            <UFormField label="Message" name="message">
-                <UTextarea v-model="state.message" class="w-full" placeholder="Your message" />
-            </UFormField>
+                <UFormField label="Message" name="message">
+                    <UTextarea v-model="state.message" class="w-full" placeholder="Your message" />
+                </UFormField>
 
-            <div class="flex xl:flex-row flex-col-reverse gap-4 w-full justify-between items-center">
-                <div class="flex items-center gap-2">
-                    <!-- TODO: Add tooltip to inform user here -->
-                    <p class="text-xs opacity-50">This form is protected with <strong>reCatpcha</strong></p>
-                    <UIcon name="i-fluent:info-12-regular" class="opacity-50" />
+                <div class="flex xl:flex-row flex-col-reverse gap-4 w-full justify-between items-center">
+                    <div class="flex items-center gap-2">
+                        <!-- TODO: Add tooltip to inform user here -->
+                        <p class="text-xs opacity-50">This form is protected with <strong>reCatpcha</strong></p>
+                        <UIcon name="i-fluent:info-12-regular" class="opacity-50" />
+                    </div>
+                    <UButton type="submit" class="px-24" :loading="isLoading" :disabled="isLoading">
+                        {{ isLoading ? "Sending..." : "Send" }}
+                    </UButton>
+
                 </div>
-                <UButton type="submit" class="px-24" :loading="isLoading" :disabled="isLoading">
-                    {{ isLoading ? "Sending..." : "Send" }}
-                </UButton>
-
-            </div>
-        </UForm>
-    </UCard>
+            </UForm>
+        </UCard>
+    </div>
 </template>
 
 <script setup lang="ts">
