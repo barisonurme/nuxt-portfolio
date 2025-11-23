@@ -89,6 +89,7 @@ async function onSubmit(event: FormSubmitEvent<SchemaType>) {
             method: "POST",
             body: data,
             headers: { "Content-Type": "application/json" },
+            timeout: 5000,
         });
 
         toast.success({ title: "Success", message: "Message sent successfully!" });
