@@ -1,9 +1,9 @@
+<!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
-    <UCard class="mt-8 bg-muted/10 backdrop-blur-2xl">
-        <div
-            class="hidden blur opacity-20 light:opacity-10 top-0 absolute xl:flex w-full h-[540px]  -z-10 -translate-y-1/2" />
-        <div class="absolute xl:hidden h-dvh w-full top-0 bg-linear-to-b from-primary/10 via-primary/0 to-primary/0" />
-
+    <div
+        class="hidden blur opacity-20 light:opacity-10 top-0 absolute xl:flex w-full h-[540px]  -z-10 -translate-y-1/2" />
+    <div class="absolute xl:hidden h-dvh w-full top-0 bg-linear-to-b from-primary/10 via-primary/0 to-primary/0" />
+    <UCard class="mt-8 bg-muted/30">
         <UForm class="flex flex-col gap-4 w-full mt-4" :state="state" :schema="schema" @submit="onSubmit">
             <UFormField label="Full Name" name="fullName">
                 <UInput v-model="state.fullName" class="w-full" placeholder="Your name" />
@@ -17,10 +17,11 @@
                 <UTextarea v-model="state.message" class="w-full" placeholder="Your message" />
             </UFormField>
 
-            <div class="flex w-full justify-end">
-                <UButton type="submit" class="mt-4 px-24" :loading="isLoading" :disabled="isLoading">
+            <div class="flex xl:flex-row flex-col w-full justify-end items-center">
+                <UButton type="submit" class="px-24" :loading="isLoading" :disabled="isLoading">
                     {{ isLoading ? "Sending..." : "Send" }}
                 </UButton>
+
             </div>
         </UForm>
     </UCard>
@@ -56,30 +57,64 @@ async function onSubmit(event: FormSubmitEvent<SchemaType>) {
     event.preventDefault();
     isLoading.value = true;
 
-    // Convert reactive state to plain object
-    const data = toRaw(state);
+    const siteKey = useRuntimeConfig().public.captchaSiteKey;
+
+    let captchaToken = "";
 
     try {
-        const res = await $fetch("/api/contact-posts", {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        captchaToken = await new Promise<string>((resolve) => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            window.grecaptcha.ready(() => {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                window.grecaptcha.execute(siteKey, { action: "submit" }).then(resolve);
+            });
+        });
+    } catch {
+        toast.error({ title: "Error", message: "Captcha failed to load." });
+        isLoading.value = false;
+        return;
+    }
+
+    const data = {
+        ...toRaw(state),
+        captchaToken,
+    };
+
+    try {
+        await $fetch("/api/contact-posts", {
             method: "POST",
             body: data,
             headers: { "Content-Type": "application/json" },
-            timeout: 5000, // optional timeout
         });
 
         toast.success({ title: "Success", message: "Message sent successfully!" });
-        console.log("Submitted:", res);
 
         // Reset form
         state.fullName = "";
         state.email = "";
         state.message = "";
-    } catch (err) {
-        console.error("Submit error:", err);
+    } catch {
         toast.error({ title: "Error", message: "Failed to send message." });
     } finally {
         isLoading.value = false;
     }
 }
+
+
+
+
+
+onMounted(() => {
+    const siteKey = useRuntimeConfig().public.captchaSiteKey
+
+    const script = document.createElement("script")
+    script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`
+    script.async = true
+    document.head.appendChild(script)
+})
 
 </script>

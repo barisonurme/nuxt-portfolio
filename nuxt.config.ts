@@ -11,6 +11,9 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    /* Captcha */
+    captchaSecretKey: process.env.CAPTCHA_SECRET_KEY,  
+
     public: {
       /* Sanity */
       sanityProjectId: process.env.NUXT_PUBLIC_SANITY_PROJECT_ID,
@@ -23,6 +26,9 @@ export default defineNuxtConfig({
       storageBucket: process.env.NUXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
       messagingSenderId: process.env.NUXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
       appId: process.env.NUXT_PUBLIC_FIREBASE_APP_ID,
+
+      /* Captcha */
+      captchaSiteKey: process.env.NUXT_PUBLIC_CAPTCHA_SITE_KEY
     }
   },
 
@@ -32,11 +38,13 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/test-utils',
     '@nuxt/ui',
-    'nuxt-toast'
+    'nuxt-toast',
   ],
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
   },
   css: ['./app/assets/css/main.css'],
+
+  
 
 });
