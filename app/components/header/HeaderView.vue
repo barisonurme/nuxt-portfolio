@@ -17,9 +17,9 @@
             fine-tuning
             every
             byte.</h3>
-        <div class="flex gap-4 mt-12">
-            <UButton size="lg" class="">About</UButton>
-            <UButton size="lg" variant="outline">Contact</UButton>
+        <div class="flex gap-4 mt-12 z-10">
+            <UButton size="lg" to="/about">About</UButton>
+            <UButton size="lg" variant="outline" to="/contact">Contact</UButton>
         </div>
 
     </div>

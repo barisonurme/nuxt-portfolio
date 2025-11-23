@@ -1,23 +1,29 @@
 <template>
-    <UForm class="flex flex-col gap-4 w-full mt-4" :state="state" :schema="schema" @submit="onSubmit">
-        <UFormField label="Full Name" name="fullName">
-            <UInput v-model="state.fullName" class="w-full" placeholder="Your name" />
-        </UFormField>
+    <UCard class="mt-8 bg-muted/10 backdrop-blur-2xl">
+        <div
+            class="hidden blur opacity-20 light:opacity-10 top-0 absolute xl:flex w-full h-[540px]  -z-10 -translate-y-1/2" />
+        <div class="absolute xl:hidden h-dvh w-full top-0 bg-linear-to-b from-primary/10 via-primary/0 to-primary/0" />
 
-        <UFormField label="Email" name="email">
-            <UInput v-model="state.email" class="w-full" placeholder="you@example.com" type="email" />
-        </UFormField>
+        <UForm class="flex flex-col gap-4 w-full mt-4" :state="state" :schema="schema" @submit="onSubmit">
+            <UFormField label="Full Name" name="fullName">
+                <UInput v-model="state.fullName" class="w-full" placeholder="Your name" />
+            </UFormField>
 
-        <UFormField label="Message" name="message">
-            <UTextarea v-model="state.message" class="w-full" placeholder="Your message" />
-        </UFormField>
+            <UFormField label="Email" name="email">
+                <UInput v-model="state.email" class="w-full" placeholder="you@example.com" type="email" />
+            </UFormField>
 
-        <div class="flex w-full justify-end">
-            <UButton type="submit" class="mt-4 px-24" :loading="isLoading" :disabled="isLoading">
-                {{ isLoading ? "Sending..." : "Send" }}
-            </UButton>
-        </div>
-    </UForm>
+            <UFormField label="Message" name="message">
+                <UTextarea v-model="state.message" class="w-full" placeholder="Your message" />
+            </UFormField>
+
+            <div class="flex w-full justify-end">
+                <UButton type="submit" class="mt-4 px-24" :loading="isLoading" :disabled="isLoading">
+                    {{ isLoading ? "Sending..." : "Send" }}
+                </UButton>
+            </div>
+        </UForm>
+    </UCard>
 </template>
 
 <script setup lang="ts">
