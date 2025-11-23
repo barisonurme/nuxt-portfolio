@@ -1,7 +1,7 @@
 <template>
   <Motion :key="words[currentWordIndex]" as="p" :layout-id="`words-here-${id}`" :animate="{ width }"
     :transition="{ duration: props.animationDuration / 2000 }" :class="cn(
-      'relative inline-block rounded-lg pt-2 pb-3 lg:px-4 text-center text-6xl font-bold text-black lg:text-[102px] dark:text-white',
+      'relative inline-block rounded-lg pt-2 pb-3 xl:px-4 text-center text-6xl font-bold text-black xl:text-[102px] dark:text-white',
       props.class,
     )
       ">

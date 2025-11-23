@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import type { NavigationMenuItem } from '@nuxt/ui'
+import type { NavigationMenuItem } from '@nuxt/ui';
 import FooterView from './components/ui/footer/FooterView.vue';
 
 const HEADER_HEIGHT = '80px'
+
 
 const items = computed<NavigationMenuItem[]>(() => [
   {
@@ -24,6 +25,9 @@ const items = computed<NavigationMenuItem[]>(() => [
 ])
 
 
+
+
+
 </script>
 
 <template>
@@ -34,8 +38,11 @@ const items = computed<NavigationMenuItem[]>(() => [
 
       <p class="text-primary font-black text-font-custom">baris<span class="text-white">.</span></p>
     </template>
-
     <UNavigationMenu :items="items" />
+
+    <template #body>
+      <UNavigationMenu :items="items" orientation="vertical" class="-mx-2.5" />
+    </template>
 
     <template #right>
       <UColorModeButton />

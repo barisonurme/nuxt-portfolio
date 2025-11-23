@@ -41,8 +41,8 @@ const { data: posts } = await useAsyncData('posts', async () => {
     <div class="flex flex-col w-full justify-center items-center mb-44">
 
 
-        <div class="blur light:opacity-50 top-0 absolute flex w-full h-[540px] opacity-20" />
-
+        <div class="hidden blur light:opacity-50 top-0 absolute xl:flex w-full h-[540px] translate-y-12  opacity-20" />
+        <div class="absolute xl:hidden h-dvh w-full top-0 bg-linear-to-b from-primary/10 via-primary/0 to-primary/0" />
 
         <div class="flex w-full max-w-7xl">
             <UPageHeader :ui="{ container: 'px-4', headline: 'px-4' }" class="flex flex-col w-full" title="Blog Posts"

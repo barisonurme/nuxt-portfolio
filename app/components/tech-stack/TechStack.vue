@@ -158,7 +158,7 @@ const testimonials = ref([
                 <UPageCard v-for="(testimonial, index) in testimonials"
                     class="group hover:border-primary/50! border border-muted/50 bg-muted/20 opacity-80 hover:opacity-100 duration-500 transition-all "
                     :key="index" variant="subtle" :description="testimonial.quote" :ui="{
-                        description: 'opacity-0 group-hover:opacity-100 h-0! group-hover:h-24! transition-all duration-500 before:content-[open-quote] after:content-[close-quote]',
+                        description: 'xl:opacity-0 xl:group-hover:opacity-100 xl:h-0! h-auto xl:group-hover:h-24! transition-all duration-500 before:content-[open-quote] after:content-[close-quote]',
                         leadingIcon: 'size-10 text-primary!',
                     }">
                     <template #footer>

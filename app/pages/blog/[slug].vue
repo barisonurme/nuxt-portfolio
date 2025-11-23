@@ -36,7 +36,8 @@ const { data: post } = await useAsyncData(`post-${slug}`, async () => {
 
 <template>
     <div class="flex flex-col w-full max-w-7xl justify-center mb-24">
-        <div class="blur light:opacity-50 top-0 absolute flex w-full h-[540px] -z-10 opacity-10" />
+        <div class="hidden blur light:opacity-50 top-0 absolute xl:flex w-full h-[540px]  -z-10 -translate-y-1/2" />
+        <div class="absolute xl:hidden h-dvh w-full top-0 bg-linear-to-b from-primary/10 via-primary/0 to-primary/0" />
 
         <div class="flex flex-col w-full p-8">
             <img :src="post.mainImage.asset.url" :alt="post.mainImage.alt" />
