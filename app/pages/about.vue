@@ -1,13 +1,20 @@
+<template>
+    <div class="flex flex-col w-full max-w-7xl">
+        <UPageHeader :ui="{ container: 'px-4', headline: 'px-4' }" class="flex flex-col w-full" title="About Me"
+            description="Have questions or want to collaborate? Send me a message, and I'll get back to you soon!"
+            headline="About me" />
+
+        <div class="flex w-full h-full justify-center items-center">
+            <UAlert title="Under Construction!" description="About Page Under Construction."
+                icon="ix:maintenance-triangle" :ui="{
+                    icon: 'size-11'
+                }" />
+        </div>
+    </div>
+</template>
 <script lang="ts" setup>
-import { HEADER_HEIGHT } from '~/layout/layout-config';
 
 
 
 </script>
-<template>
-    <div :style="{ height: `calc(100dvh - ${HEADER_HEIGHT})` }" class="flex justify-center items-center w-full">
-        About Page Under Construction
-    </div>
-</template>
-
 <style></style>
