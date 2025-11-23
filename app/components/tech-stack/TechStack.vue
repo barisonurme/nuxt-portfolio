@@ -166,7 +166,7 @@ const testimonials = ref([
                             :ui="{ name: 'group-hover:text-primary! duration-300 ease-out transition-all', avatar: 'duration-300 ease-out transition-all saturate-0 group-hover:saturate-100' }" />
                     </template>
                 </UPageCard>
-            </UPageGrid>>
+            </UPageGrid>
         </div>
     </div>
 </template>
