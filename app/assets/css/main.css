@@ -18,3 +18,5 @@
   --ui-primary: #0ef0a1;
 
 }
+
+.grecaptcha-badge { display: none; }

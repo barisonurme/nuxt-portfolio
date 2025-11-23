@@ -14,7 +14,12 @@
                 <UTextarea v-model="state.message" class="w-full" placeholder="Your message" />
             </UFormField>
 
-            <div class="flex xl:flex-row flex-col w-full justify-end items-center">
+            <div class="flex xl:flex-row flex-col w-full justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <!-- TODO: Add tooltip to inform user here -->
+                    <p class="text-xs opacity-50">This form is protected with <strong>reCatpcha</strong></p>
+                    <UIcon name="i-fluent:info-12-regular" class="opacity-50" />
+                </div>
                 <UButton type="submit" class="px-24" :loading="isLoading" :disabled="isLoading">
                     {{ isLoading ? "Sending..." : "Send" }}
                 </UButton>
@@ -113,6 +118,15 @@ onMounted(() => {
     script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`
     script.async = true
     document.head.appendChild(script)
+
+    script.onload = () => {
+        const badge = document.getElementById("recaptcha-token") as HTMLElement
+        if (badge) {
+            badge.style.bottom = "10px"
+            badge.style.left = "10px"
+            badge.style.right = "auto"
+        }
+    }
 })
 
 </script>
