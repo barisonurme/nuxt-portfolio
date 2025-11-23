@@ -1,8 +1,5 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
-    <div
-        class="hidden blur opacity-20 light:opacity-10 top-0 absolute xl:flex w-full h-[540px]  -z-10 -translate-y-1/2" />
-    <div class="absolute xl:hidden h-dvh w-full top-0 bg-linear-to-b from-primary/10 via-primary/0 to-primary/0" />
     <UCard class="mt-8 bg-muted/30">
         <UForm class="flex flex-col gap-4 w-full mt-4" :state="state" :schema="schema" @submit="onSubmit">
             <UFormField label="Full Name" name="fullName">
