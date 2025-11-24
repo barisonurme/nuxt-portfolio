@@ -34,6 +34,32 @@ const { data: posts } = await useAsyncData('posts', async () => {
   }`
     return await client.fetch(query)
 })
+
+const { data: featured } = await useAsyncData('featured-posts', async () => {
+    const query = `*[
+    _type == "post" &&
+    "Featured" in categories[]->title
+  ] | order(publishedAt desc) {
+    _id,
+    title,
+    slug,
+    body,
+    publishedAt,
+    mainImage{
+      asset->{
+        _id,
+        url
+      },
+      alt
+    }
+  }`
+
+    return await client.fetch(query)
+})
+
+
+
+
 </script>
 
 <!-- eslint-disable vue/first-attribute-linebreak -->
@@ -58,8 +84,7 @@ const { data: posts } = await useAsyncData('posts', async () => {
             <div class="grid col-span-12 xl:col-span-8  p-4">
 
                 <div class="flex flex-col gap-4">
-                    <h1 class="text-2xl font-black text-primary mt-12 mb-4"><span class="text-default">All
-                        </span>Posts</h1>
+                    <h1 class="text-2xl font-black text-primary mt-12 mb-4">Latest</h1>
                     <div v-for="(post, i) in posts" :key="i">
                         <NuxtLink :to="`/blog/${post.slug.current}`">
                             <UBlogPost :image="post.mainImage.asset.url" :alt="post.mainImage.alt"
@@ -75,8 +100,8 @@ const { data: posts } = await useAsyncData('posts', async () => {
                 <div class="flex flex-col gap-4 h-full justify-start items-start">
                     <h1 class="text-2xl font-black text-primary mt-12 mb-4">Featured</h1>
 
-                    <UBlogPost v-for="(post, i) in posts.slice(0, 2)" :key="i" class="col-span-4 bg-muted/20"
-                        v-bind="post" description="" />
+                    <UBlogPost v-for="(feature, i) in featured.slice(0, 2)" :key="i" class="col-span-4 bg-muted/20"
+                        v-bind="feature" description="" />
                 </div>
             </div>
         </div>
