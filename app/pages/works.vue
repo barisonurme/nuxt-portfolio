@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
     <div class="flex flex-col w-full max-w-7xl">
         <UPageHeader :ui="{ container: 'px-4', headline: 'px-4' }" class="flex flex-col w-full" title="Showcase"
@@ -13,8 +14,18 @@
     </div>
 </template>
 <script lang="ts" setup>
+const config = useRuntimeConfig()
 
-
+useHead({
+    title: 'Works',
+    meta: [
+        { name: 'description', content: "Some of Barış Önurme's projects and case studies." },
+        { property: 'og:title', content: 'Works — Baris Onur' },
+        { property: 'og:description', content: "Some of Barış Önurme's projects and case studies." },
+        { property: 'og:url', content: `${config.public.siteUrl}/works` }
+    ],
+    link: [{ rel: 'canonical', href: `${config.public.siteUrl}/works` }]
+})
 
 </script>
 <style></style>

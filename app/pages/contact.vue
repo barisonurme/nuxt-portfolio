@@ -10,8 +10,17 @@
 <script lang="ts" setup>
 import ContactForm from '~/components/contact/ContactForm.vue';
 
+const config = useRuntimeConfig()
 
-
-
+useHead({
+    title: 'Contact',
+    meta: [
+        { name: 'description', content: 'Get in touch with Barış Önurme for collaborations or inquiries.' },
+        { property: 'og:title', content: 'Contact — Barış Önurme' },
+        { property: 'og:description', content: 'Get in touch with Barış Önurme for collaborations.' },
+        { property: 'og:url', content: `${config.public.siteUrl}/contact` }
+    ],
+    link: [{ rel: 'canonical', href: `${config.public.siteUrl}/contact` }]
+})
 </script>
 <style></style>

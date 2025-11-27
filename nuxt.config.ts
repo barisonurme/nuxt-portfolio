@@ -28,7 +28,9 @@ export default defineNuxtConfig({
       appId: process.env.NUXT_PUBLIC_FIREBASE_APP_ID,
 
       /* Captcha */
-      captchaSiteKey: process.env.NUXT_PUBLIC_CAPTCHA_SITE_KEY
+      captchaSiteKey: process.env.NUXT_PUBLIC_CAPTCHA_SITE_KEY,
+      /* Site */
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://barisonurme.com'
     }
   },
 
@@ -42,6 +44,24 @@ export default defineNuxtConfig({
   ],
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
+    head: {
+      title: 'Barış Önurme',
+      titleTemplate: '%s | Barış Önurme',
+      htmlAttrs: { lang: 'en' },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'format-detection', content: 'telephone=no' },
+        { name: 'description', content: 'Portfolio of Barış Önurme — developer & designer.' },
+        { name: 'theme-color', content: '#ffffff' },
+        { property: 'og:site_name', content: 'Barış Önurme' },
+        { property: 'og:type', content: 'website' },
+        { name: 'twitter:card', content: 'summary_large_image' }
+      ],
+      link: [
+        { rel: 'icon', href: '/favicon.ico' }
+      ]
+    }
   },
   css: ['./app/assets/css/main.css'],
 
