@@ -1,0 +1,135 @@
+/* Base typography */
+.portable-text {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: var(--ui-text, #222);
+    max-width: 75ch;
+}
+
+/* Headings */
+.portable-text h1,
+.portable-text h2,
+.portable-text h3,
+.portable-text h4 {
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--ui-primary);
+    margin-top: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.portable-text h1 {
+    font-size: 2.4rem;
+}
+
+.portable-text h2 {
+    font-size: 2rem;
+}
+
+.portable-text h3 {
+    font-size: 1.5rem;
+}
+
+.portable-text h4 {
+    font-size: 1.25rem;
+}
+
+/* Paragraphs */
+.portable-text p {
+    margin: 1rem 0;
+}
+
+/* Blockquotes */
+.portable-text blockquote {
+    border-left: 4px solid var(--ui-primary);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    background: rgba(0, 0, 0, 0.03);
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+}
+
+/* Lists */
+.portable-text ul,
+.portable-text ol {
+    padding-left: 1.5rem;
+    margin: 1.2rem 0;
+    line-height: 1.7;
+}
+
+.portable-text ul {
+    list-style-type: disc;
+}
+
+.portable-text ol {
+    list-style-type: decimal;
+}
+
+.portable-text li {
+    margin: 0.4rem 0;
+}
+
+/* Links */
+.portable-text a {
+    color: var(--ui-primary);
+    font-weight: 600;
+    text-decoration: underline;
+    transition: opacity 0.2s;
+}
+
+.portable-text a:hover {
+    opacity: 0.75;
+}
+
+/* Images */
+.portable-text img {
+    margin: 2rem 0;
+    border-radius: 12px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Code blocks */
+.portable-text pre {
+    background: #1a1a1a;
+    color: #f8f8f2;
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-size: 0.95rem;
+}
+
+.portable-text code {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 0.15rem 0.35rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+/* Horizontal rule */
+.portable-text hr {
+    border: none;
+    border-top: 1px dashed var(--ui-primary);
+    margin: 2rem 0;
+    opacity: 0.4;
+}
+
+/* Tables */
+.portable-text table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+.portable-text th,
+.portable-text td {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.6rem;
+}
+
+.portable-text th {
+    background: rgba(0, 0, 0, 0.05);
+    font-weight: 700;
+}

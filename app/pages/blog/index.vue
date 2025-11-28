@@ -101,10 +101,9 @@ const { data: featured } = await useAsyncData('featured-posts', async () => {
                 <div class="flex flex-col gap-4 h-full justify-start items-start">
                     <h1 class="font-black text-primary mt-12 mb-4">Featured</h1>
 
-                    <UBlogPost v-for="(feature, i) in featured.slice(0, 2)" :key="i" class="col-span-4 bg-muted/20"
-                        v-bind="feature" :description="useDateFormat(feature.publishedAt, 'YYYY-MM-DD')" :ui="{
-                            title: 'text-lg! font-bold',
-                        }" />
+                    <UBlogPost v-for="(feature, i) in featured.slice(0, 2)" :key="i"
+                        class="col-span-4 bg-muted/20 w-full" v-bind="feature"
+                        :description="useDateFormat(feature.publishedAt, 'YYYY-MM-DD')" />
                 </div>
             </div>
         </div>

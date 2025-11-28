@@ -2,9 +2,11 @@
 
 import { PortableText } from '@portabletext/vue'
 import { useDateFormat } from '@vueuse/core'
-
 import { useRoute } from 'vue-router'
 import { useSanityClient } from '~/plugins/utils/sanaty'
+
+import "./blog.css"
+
 const client = useSanityClient()
 const route = useRoute()
 const slug = route.params.slug
@@ -50,7 +52,10 @@ const { data: post } = await useAsyncData(`post-${slug}`, async () => {
             <p>{{ post.description }}</p>
 
             <!-- Portable Text rendering -->
-            <PortableText v-if="post.body" :value="post.body" />
+            <div class="portable-text">
+                <PortableText v-if="post.body" :value="post.body" />
+            </div>
+
         </div>
 
         <div class="flex w-full justify-center items-center">
@@ -63,22 +68,6 @@ const { data: post } = await useAsyncData(`post-${slug}`, async () => {
 </template>
 
 <style>
-h3 {
-    font-size: 1.5rem;
-    font-weight: 900;
-    margin-top: 12px;
-    margin-bottom: 12px;
-}
-
-
-h2 {
-    font-size: 1.9rem;
-    font-weight: 900;
-    margin-top: 12px;
-    margin-bottom: 12px;
-}
-
-
 .blur {
     width: 693px;
     max-width: 693px;
