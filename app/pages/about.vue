@@ -7,8 +7,8 @@
 
         <AboutView :page-mode="true" />
 
-        <NuxtLink class="pl-8 pb-4" to="/contact">
-            <p class="group text-2xl font-semibold hover:underline cursor-pointer items-center flex">
+        <NuxtLink class="pl-8 pb-4 my-12" to="/contact">
+            <p class="group  font-semibold hover:underline cursor-pointer items-center flex">
                 Contact
                 <UIcon name="i-lucide-chevron-right" class="size-5 group-hover:translate-x-1/2 duration-500" />
             </p>

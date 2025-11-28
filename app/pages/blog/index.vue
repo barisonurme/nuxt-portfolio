@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useAsyncData } from '#app'
 import { useSanityClient } from '~/plugins/utils/sanaty'
+import { useDateFormat } from '@vueuse/core'
 
 const client = useSanityClient()
 
@@ -67,7 +68,7 @@ const { data: featured } = await useAsyncData('featured-posts', async () => {
     <div class="flex flex-col w-full justify-center items-center mb-44">
 
 
-        <div class="hidden blur light:opacity-50 top-0 absolute xl:flex w-full h-[540px] translate-y-12  opacity-20" />
+        <div class="hidden blur light:opacity-10 top-0 absolute xl:flex w-full h-[540px] translate-y-12  opacity-20" />
         <div class="absolute xl:hidden h-dvh w-full top-0 bg-linear-to-b from-primary/10 via-primary/0 to-primary/0" />
 
         <div class="flex w-full max-w-7xl">
@@ -98,10 +99,12 @@ const { data: featured } = await useAsyncData('featured-posts', async () => {
             <div class="hidden xl:grid col-span-4 gap-4 p-4 justify-start items-start">
 
                 <div class="flex flex-col gap-4 h-full justify-start items-start">
-                    <h1 class="text-2xl font-black text-primary mt-12 mb-4">Featured</h1>
+                    <h1 class="font-black text-primary mt-12 mb-4">Featured</h1>
 
                     <UBlogPost v-for="(feature, i) in featured.slice(0, 2)" :key="i" class="col-span-4 bg-muted/20"
-                        v-bind="feature" description="" />
+                        v-bind="feature" :description="useDateFormat(feature.publishedAt, 'YYYY-MM-DD')" :ui="{
+                            title: 'text-lg! font-bold',
+                        }" />
                 </div>
             </div>
         </div>

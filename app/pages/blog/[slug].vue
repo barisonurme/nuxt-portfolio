@@ -44,7 +44,7 @@ const { data: post } = await useAsyncData(`post-${slug}`, async () => {
 
             <h1 class="text-4xl my-4 text-primary font-black">{{ post.title }}</h1>
             <h1 class="text-xl my-4">{{ useDateFormat(post.publishedAt,
-                'YYYY-MM-DD HH:mm:ss') }}</h1>
+                'YYYY-MM-DD') }}</h1>
 
             <USeparator type="dashed" class="my-4 mb-12" />
             <p>{{ post.description }}</p>
@@ -64,22 +64,16 @@ const { data: post } = await useAsyncData(`post-${slug}`, async () => {
 
 <style>
 h3 {
-    font-size: large;
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 900;
     margin-top: 12px;
     margin-bottom: 12px;
 }
 
-h2 {
-    font-size: larger;
-    font-weight: 700;
-    margin-top: 12px;
-    margin-bottom: 12px;
-}
 
 h2 {
-    font-size: x-large;
-    font-weight: 700;
+    font-size: 1.9rem;
+    font-weight: 900;
     margin-top: 12px;
     margin-bottom: 12px;
 }

@@ -2,7 +2,7 @@
 <template>
     <img class="hidden xl:flex absolute object-contain z-10 h-[720px] top-0 w-2/6 translate-y-1/2"
         src="https://github.githubassets.com/assets/particles-de1dd20f3008.png" alt="temp-partical">
-    <div class="hidden blur light:opacity-50 top-0 absolute xl:flex w-full h-[540px] translate-y-12" />
+    <div class="hidden blur light:opacity-0 top-0 absolute xl:flex w-full h-[540px] translate-y-12" />
     <div class="absolute xl:hidden h-dvh w-full top-0 bg-linear-to-b from-primary/10 to-primary/0" />
 
     <div class="flex flex-col justify-start items-start max-w-7xl w-full mt-44 p-8 xl:p-24">
