@@ -101,9 +101,13 @@ const { data: featured } = await useAsyncData('featured-posts', async () => {
                 <div class="flex flex-col gap-4 h-full justify-start items-start">
                     <h1 class="font-black text-primary mt-12 mb-4">Featured</h1>
 
-                    <UBlogPost v-for="(feature, i) in featured.slice(0, 2)" :key="i"
-                        class="col-span-4 bg-muted/20 w-full" v-bind="feature"
-                        :description="useDateFormat(feature.publishedAt, 'YYYY-MM-DD')" />
+                    <div v-for="(feature, i) in featured.slice(0, 2)" :key="i" v-bind="feature" class="w-full">
+                        <NuxtLink :to="`/blog/${feature.slug.current}`">
+                            <UBlogPost class="col-span-4 bg-muted/20 w-full" :title="feature.title"
+                                :description="useDateFormat(feature.publishedAt, 'YYYY-MM-DD')" />
+                        </NuxtLink>
+                    </div>
+
                 </div>
             </div>
         </div>
