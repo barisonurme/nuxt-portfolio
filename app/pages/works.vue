@@ -20,7 +20,7 @@ useHead({
     title: 'Works',
     meta: [
         { name: 'description', content: "Some of Barış Önurme's projects and case studies." },
-        { property: 'og:title', content: 'Works — Baris Onur' },
+        { property: 'og:title', content: 'Works — Barış Önurme' },
         { property: 'og:description', content: "Some of Barış Önurme's projects and case studies." },
         { property: 'og:url', content: `${config.public.siteUrl}/works` }
     ],

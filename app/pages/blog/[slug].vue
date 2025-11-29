@@ -10,6 +10,18 @@ import "./blog.css"
 const client = useSanityClient()
 const route = useRoute()
 const slug = route.params.slug
+const config = useRuntimeConfig()
+
+// Set initial title immediately
+useHead({
+    title: 'Post',
+    meta: [
+        { name: 'description', content: 'Loading...' },
+        { property: 'og:title', content: 'Post — Barış Önurme' },
+        { property: 'og:url', content: `${config.public.siteUrl}/blog/${slug}` }
+    ],
+    link: [{ rel: 'canonical', href: `${config.public.siteUrl}/blog/${slug}` }]
+})
 
 const { data: post } = await useAsyncData(`post-${slug}`, async () => {
     try {
@@ -33,6 +45,17 @@ const { data: post } = await useAsyncData(`post-${slug}`, async () => {
     }
 })
 
+useHead(() => ({
+    title: post.value?.title || 'Post',
+    meta: [
+        { name: 'description', content: post.value?.description || '' },
+        { property: 'og:title', content: `${post.value?.title || 'Post'} — Barış Önurme` },
+        { property: 'og:description', content: post.value?.description || '' },
+        { property: 'og:url', content: `${config.public.siteUrl}/blog/${slug}` },
+        { property: 'og:image', content: post.value?.mainImage?.asset?.url || '' }
+    ],
+    link: [{ rel: 'canonical', href: `${config.public.siteUrl}/blog/${slug}` }]
+}))
 
 </script>
 

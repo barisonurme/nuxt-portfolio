@@ -3,6 +3,19 @@ import { useAsyncData } from '#app'
 import { useSanityClient } from '~/plugins/utils/sanaty'
 import { useDateFormat } from '@vueuse/core'
 
+const config = useRuntimeConfig()
+
+useHead({
+    title: 'Blog',
+    meta: [
+        { name: 'description', content: "My knowledge and the lessons I've learned along my development and design journey." },
+        { property: 'og:title', content: 'Blog — Barış Önurme' },
+        { property: 'og:description', content: "My knowledge and the lessons I've learned along my development and design journey." },
+        { property: 'og:url', content: `${config.public.siteUrl}/blog` }
+    ],
+    link: [{ rel: 'canonical', href: `${config.public.siteUrl}/blog` }]
+})
+
 const client = useSanityClient()
 
 const authors = ref([

@@ -18,8 +18,17 @@
 <script lang="ts" setup>
 import AboutView from '~/components/about/AboutView.vue';
 
+const config = useRuntimeConfig()
 
-
-
+useHead({
+    title: 'About',
+    meta: [
+        { name: 'description', content: 'Learn more about Barış Önurme, skills, background and how to work together.' },
+        { property: 'og:title', content: 'About — Barış Önurme' },
+        { property: 'og:description', content: 'Learn more about Barış Önurme, skills and background.' },
+        { property: 'og:url', content: `${config.public.siteUrl}/about` }
+    ],
+    link: [{ rel: 'canonical', href: `${config.public.siteUrl}/about` }]
+})
 </script>
 <style></style>
