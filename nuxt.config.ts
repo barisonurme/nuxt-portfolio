@@ -58,7 +58,8 @@ export default defineNuxtConfig({
         { property: 'og:type', content: 'website' },
         { property: 'og:url', content: 'https://barisonurme.com' },
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'robots', content: 'index, follow' }
+        { name: 'robots', content: 'index, follow' },
+        { name: 'google-site-verification', content: 'cFvnwHeE_VCv_w9DvXr0aGFVGKUIX6e4uyfHBw0mJjU' }
       ],
       link: [
         { rel: 'icon', href: '/favicon.ico' },
