@@ -56,10 +56,13 @@ export default defineNuxtConfig({
         { name: 'theme-color', content: '#ffffff' },
         { property: 'og:site_name', content: 'Barış Önurme' },
         { property: 'og:type', content: 'website' },
-        { name: 'twitter:card', content: 'summary_large_image' }
+        { property: 'og:url', content: 'https://barisonurme.com' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'robots', content: 'index, follow' }
       ],
       link: [
-        { rel: 'icon', href: '/favicon.ico' }
+        { rel: 'icon', href: '/favicon.ico' },
+        { rel: 'sitemap', href: '/api/sitemap' }
       ]
     }
   },
