@@ -41,6 +41,7 @@ export default defineNuxtConfig({
     '@nuxt/test-utils',
     '@nuxt/ui',
     'nuxt-toast',
+    'v-gsap-nuxt',
   ],
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },

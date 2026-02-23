@@ -31,7 +31,9 @@
     "nuxt-toast": "^1.4.0",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.17",
+    "three": "^0.183.1",
     "typescript": "^5.9.3",
+    "v-gsap-nuxt": "1.5.12",
     "vite-svg-loader": "^5.1.0",
     "zod": "^4.1.12"
   },
